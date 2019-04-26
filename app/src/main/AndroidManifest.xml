@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Lapor" ></activity>
+        <activity android:name=".Tema"></activity>
+        <activity android:name=".Lapor" />
     </application>
 
 </manifest>
