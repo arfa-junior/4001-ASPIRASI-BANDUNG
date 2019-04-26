@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class StatusLaporan extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-/////////////
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
