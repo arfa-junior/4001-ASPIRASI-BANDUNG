@@ -1,29 +1,36 @@
+
 package com.example.aspirasilapor;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.provider.Settings;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Notlpdarurat extends AppCompatActivity
+public class Feedback extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    EditText nameData, emailData, messageData;
+    Button btnSend, btnDetail;
+    Firebase firebase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notlpdarurat);
+        setContentView(R.layout.activity_feedback);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -37,7 +44,76 @@ public class Notlpdarurat extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        nameData= findViewById(R.id.nameData);
+        emailData= findViewById(R.id.emailData);
+        messageData= findViewById(R.id.messageData);
+
+        btnSend = findViewById(R.id.btnSend);
+        btnDetail = findViewById(R.id.btnDetail);
+        Firebase.setAndroidContext(this);
+
+        String UniqueID =
+                Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                        Settings.Secure.ANDROID_ID);
+
+        firebase = new Firebase("https://feedback-d7f23.firebaseio.com/Users" +UniqueID);
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnDetail.setEnabled(true);
+                final String name = nameData.getText().toString();
+                final String email = emailData.getText().toString();
+                final String message = messageData.getText().toString();
+
+                Firebase child_name = firebase.child("Name");
+                child_name.setValue(name);
+                if (name.isEmpty()) {
+                    nameData.setError("Nama Harus di Isi!");
+                    btnSend.setEnabled(false);
+                } else
+                {
+                    nameData.setError(null);
+                    btnSend.setEnabled(true);
+                }
+                Firebase child_email = firebase.child("Email");
+                child_email.setValue(email);
+                if (email.isEmpty())
+                {
+                    emailData.setError("Email Harus di Isi!");
+                    btnSend.setEnabled(false);
+                } else
+                {
+                    emailData.setError(null);
+                    btnSend.setEnabled(true);
+                }
+                Firebase child_message = firebase.child("Message");
+                child_message.setValue(message);
+                if (message.isEmpty())
+                {
+                    messageData.setError("Kritik dan Saran harus di isi");
+                    btnSend.setEnabled(false);
+                }
+                else {
+                    messageData.setError(null);
+                    btnSend.setEnabled(true);
+                }
+                Toast.makeText(Feedback.this, "Data Anda Telah Tersimpan", Toast.LENGTH_SHORT).show();
+                btnDetail.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        new AlertDialog.Builder(Feedback.this)
+                                .setTitle("Detail Masukan: ")
+                                .setMessage("Name - " + name + "\n\nEmail - " + email + "\n\nMessage - " +message)
+                                .show();
+                    }
+                });
+            }
+        });
     }
+
 
     @Override
     public void onBackPressed() {
@@ -52,7 +128,7 @@ public class Notlpdarurat extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.notlpdarurat, menu);
+        getMenuInflater().inflate(R.menu.feedback, menu);
         return true;
     }
 
@@ -70,12 +146,12 @@ public class Notlpdarurat extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-//
+
     private void logout(){
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(getApplicationContext(), Login.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        Toast.makeText(Notlpdarurat.this, "Thanks for visited", Toast.LENGTH_SHORT).show();
+        Toast.makeText(Feedback.this, "Thanks for visited", Toast.LENGTH_SHORT).show();
         startActivity(intent);
 
     }
@@ -85,7 +161,7 @@ public class Notlpdarurat extends AppCompatActivity
         startActivity(intent);
     }
     private void aboutus(){
-        Intent intent = new Intent(getApplicationContext(),AboutUs.class);
+        Intent intent = new Intent(getApplicationContext(), AboutUs.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
@@ -94,8 +170,8 @@ public class Notlpdarurat extends AppCompatActivity
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
-    private void feedback(){
-        Intent intent = new Intent(getApplicationContext(), Feedback.class);
+    private void notlpdarurat(){
+        Intent intent = new Intent(getApplicationContext(), Notlpdarurat.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
@@ -122,12 +198,12 @@ public class Notlpdarurat extends AppCompatActivity
             lapor();
 
         } else if (id == R.id.nav_nomortelepondarurat) {
+            notlpdarurat();
 
         } else if (id == R.id.nav_petunjukpenggunaan) {
             petunjukpenggunaan();
 
         } else if (id == R.id.nav_feedback) {
-            feedback();
 
         } else if (id == R.id.nav_aboutus) {
             aboutus();
