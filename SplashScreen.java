@@ -29,17 +29,17 @@ public class SplashScreen extends AwesomeSplash {
         configSplash.setLogoSplash(R.drawable.logo);
         configSplash.setAnimLogoSplashDuration(2000);
         configSplash.setAnimTitleTechnique(Techniques.FadeInUp);
-////////
+
         //menambahkan title
         configSplash.setTitleSplash("Bandung Juara");
         configSplash.setTitleTextColor(R.color.splash_title);
         configSplash.setAnimTitleDuration(1000);
         configSplash.setTitleTextSize(20f);
-        configSplash.setAnimTitleDuration(2000);
+        configSplash.setAnimTitleDuration(1000);
         configSplash.setAnimTitleTechnique(Techniques.FadeIn);
     }
     @Override
     public void animationsFinished(){
-        startActivity(new Intent(SplashScreen.this, TampilanAwal.class));
+        startActivity(new Intent(SplashScreen.this, Login.class));
     }
 }

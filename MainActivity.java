@@ -30,19 +30,34 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Comment;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    private DatabaseReference mDatabase;
+    Button load;
+    RecyclerView rvMain;
+    List<CardLapor> List;
+    AdapterLapor myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +74,45 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        rvMain = findViewById(R.id.rvMain);
+        rvMain.setLayoutManager(new LinearLayoutManager(this));
+        List = new ArrayList<>();
+        myAdapter = new AdapterLapor(List, MainActivity.this);
+        rvMain.setAdapter(myAdapter);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        load = findViewById(R.id.load);
+        load.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadData();
+            }
+        });
+    }
+
+    private void loadData() {
+        List.clear();
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.child("Lapor").getChildren()){
+                    CardLapor lapor = new CardLapor();
+                    lapor.setdeskripsi(String.valueOf(ds.child("Deskripsi").getValue()));
+                    lapor.setkategori(String.valueOf(ds.child("Kategori").getValue()));
+                    lapor.setimg(String.valueOf(ds.child("Image").getValue()));
+                    List.add(lapor);
+                }
+                myAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
     }
 
@@ -99,7 +153,7 @@ public class MainActivity extends AppCompatActivity
 
     private void logout(){
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(getApplicationContext(), TampilanAwal.class);
+        Intent intent = new Intent(getApplicationContext(), Login.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         Toast.makeText(MainActivity.this, "Thanks for visited", Toast.LENGTH_SHORT).show();
         startActivity(intent);

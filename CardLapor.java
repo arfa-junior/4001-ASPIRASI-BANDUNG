@@ -3,6 +3,8 @@ package com.aspirasibandung.aspirasibandung;
 public class CardLapor {
     String img, kategori,deskripsi;
 
+    public CardLapor(){}
+
     public CardLapor(String img, String kategori, String deskripsi) {
         this.img = img;
         this.kategori = kategori;
@@ -33,4 +35,3 @@ public class CardLapor {
         this.deskripsi = Deskripsi;
     }
 }
-
