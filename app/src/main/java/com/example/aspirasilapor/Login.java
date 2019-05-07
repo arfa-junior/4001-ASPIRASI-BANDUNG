@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
                 startActivity(Regis);
             }
         });
-
+//
     }
 
     public void btnUserLogin_Click(View v) {
