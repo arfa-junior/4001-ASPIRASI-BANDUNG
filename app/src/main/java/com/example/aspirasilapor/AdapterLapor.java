@@ -106,26 +106,7 @@ public AdapterLapor(List<CardLapor> daftarChat, Context mContext) {
                     kategori.setText(card.getkategori());
                     deskripsi.setText(card.getdeskripsi());
 
-          //  StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("images").child(card.getimg());
 
-
-            // if (card.getimg() != null) Picasso.get().load(card.getimg()).into(image);
-
-//            final StorageReference islandRef = FirebaseStorage.getInstance().getReference().child("images/" + card.getimg());
-//
-//            final long ONE_MEGABYTE = 10* 1024 * 1024;
-//            islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-//                @Override
-//                public void onSuccess(byte[] bytes) {
-//                    Drawable d = Drawable.createFromStream(new ByteArrayInputStream(bytes), null);
-//                    image.setImageDrawable(d);
-//                }
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception exception) {
-//                    image.setImageResource(R.drawable.ic_launcher_background);
-//                }
-//            });
         }
 
         @Override
