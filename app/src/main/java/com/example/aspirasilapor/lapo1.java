@@ -27,6 +27,36 @@ import com.google.firebase.storage.StorageReference;
 import java.io.IOException;
 import java.util.Map;
 
+public class lapo1
+package com.example.aspirasilapor;
+
+        import android.content.Intent;
+        import android.graphics.Bitmap;
+        import android.net.Uri;
+        import android.os.Bundle;
+        import android.provider.MediaStore;
+        import android.support.design.widget.NavigationView;
+        import android.support.v4.view.GravityCompat;
+        import android.support.v4.widget.DrawerLayout;
+        import android.support.v7.app.ActionBarDrawerToggle;
+        import android.support.v7.app.AppCompatActivity;
+        import android.support.v7.widget.Toolbar;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.widget.EditText;
+        import android.widget.ImageView;
+        import android.widget.ProgressBar;
+        import android.widget.Toast;
+
+        import com.google.firebase.auth.FirebaseAuth;
+        import com.google.firebase.firestore.FirebaseFirestore;
+        import com.google.firebase.firestore.FirebaseFirestoreSettings;
+        import com.google.firebase.storage.FirebaseStorage;
+        import com.google.firebase.storage.StorageReference;
+
+        import java.io.IOException;
+        import java.util.Map;
+
 public class Lapor extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -263,4 +293,6 @@ public class Lapor extends AppCompatActivity
         return true;
 
     }
+}
+
 }
