@@ -20,7 +20,7 @@ public class AdapterLapor extends RecyclerView.Adapter<AdapterLapor.ViewHolder> 
     public AdapterLapor(List<CardLapor> daftarChat, Context mContext) {
         this.daftarChat = daftarChat;
         this.mContext = mContext;
-
+//
     }
 //
     @Override
