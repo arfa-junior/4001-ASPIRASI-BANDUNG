@@ -288,6 +288,97 @@ public class Lapor extends AppCompatActivity
             statuslaporan();
         }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.lapor, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void logout(){
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(getApplicationContext(), TampilanAwal.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        Toast.makeText(Lapor.this, "Thanks for visited", Toast.LENGTH_SHORT).show();
+        startActivity(intent);
+
+    }
+    private void Home(){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+    private void aboutus(){
+        Intent intent = new Intent(getApplicationContext(), AboutUs.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+    private void petunjukpenggunaan(){
+        Intent intent = new Intent(getApplicationContext(), PetunjukPenggunaan.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+    private void notlpdarurat(){
+        Intent intent = new Intent(getApplicationContext(), Notlpdarurat.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+    private void feedback(){
+        Intent intent = new Intent(getApplicationContext(), Feedback.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+    private void statuslaporan(){
+        Intent intent = new Intent(getApplicationContext(), StatusLaporan.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_Home) {
+            Home();
+        } else if (id == R.id.nav_lapor) {
+
+        } else if (id == R.id.nav_nomortelepondarurat) {
+            notlpdarurat();
+
+        } else if (id == R.id.nav_petunjukpenggunaan) {
+            petunjukpenggunaan();
+
+        } else if (id == R.id.nav_feedback) {
+            feedback();
+
+        } else if (id == R.id.nav_aboutus) {
+            aboutus();
+
+        } else if (id == R.id.keluar) {
+            logout();
+        }
+        else if (id == R.id.nav_statuslaporan) {
+            statuslaporan();
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
