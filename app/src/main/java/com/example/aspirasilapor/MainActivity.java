@@ -51,8 +51,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-
+//
+//
     private DatabaseReference mDatabase;
     Button load;
     RecyclerView rvMain;
