@@ -2,33 +2,40 @@ package com.example.aspirasilapor;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
-import com.firebase.client.ChildEventListener;
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    Firebase fb;
-    ArrayList<String> tanggal = new ArrayList<>();
-    ListView lv;
 
+    private DatabaseReference mDatabase;
+    Button load;
+    RecyclerView rvMain;
+    List<CardLapor> List;
+    AdapterLapor myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,42 +53,45 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Firebase.setAndroidContext(this);
+        rvMain = findViewById(R.id.rvMain);
+        rvMain.setLayoutManager(new LinearLayoutManager(this));
+        List = new ArrayList<>();
+        myAdapter = new AdapterLapor(List, MainActivity.this);
+        rvMain.setAdapter(myAdapter);
 
-        fb = new Firebase("https://aspirasistore.firebaseio.com/Lapor/Tanggal");
-        lv = (ListView) findViewById(R.id.Listview);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,tanggal);
-
-        lv.setAdapter(arrayAdapter);
-        fb.addChildEventListener(new ChildEventListener() {
+        load = findViewById(R.id.load);
+        load.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String value = dataSnapshot.getValue(String.class);
-                tanggal.add(value);
-                arrayAdapter.notifyDataSetChanged();
+            public void onClick(View v) {
+                loadData();
+            }
+        });
+    }
+
+    private void loadData() {
+        List.clear();
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.child("Lapor").getChildren()){
+                    CardLapor lapor = new CardLapor();
+                    lapor.setdeskripsi(String.valueOf(ds.child("Deskripsi").getValue()));
+                    lapor.setkategori(String.valueOf(ds.child("Kategori").getValue()));
+                    lapor.setimg(String.valueOf(ds.child("Image").getValue()));
+                    List.add(lapor);
+                }
+                myAdapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
+
+
     }
 
 
@@ -118,9 +128,10 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
     private void logout(){
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(getApplicationContext(), TampilanAwal.class);
+        Intent intent = new Intent(getApplicationContext(), Login.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         Toast.makeText(MainActivity.this, "Thanks for visited", Toast.LENGTH_SHORT).show();
         startActivity(intent);

@@ -5,34 +5,40 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_lapor"
+            android:icon="@drawable/ic_lapor"
+            android:title="Lapor" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_statuslaporan"
+            android:icon="@drawable/ic_status_laporan"
+            android:title="Status Laporan" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_nomortelepondarurat"
+            android:icon="@drawable/ic_nomortelepondarurat"
+            android:title="No. Telepon Darurat" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_petunjukpenggunaan"
+            android:icon="@drawable/ic_petunjukpenggunaan"
+            android:title="Petunjuk Penggunaan" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_feedback"
+            android:title="Feedback" />
+        <item
+            android:id="@+id/nav_aboutus"
+            android:icon="@drawable/ic_aboutus"
+            android:title="About Us" />
     </group>
 
     <item android:title="Communicate">
         <menu>
+
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/keluar"
+                android:icon="@drawable/icon_keluar"
+                android:title="Keluar" />
         </menu>
     </item>
+
 
 </menu>

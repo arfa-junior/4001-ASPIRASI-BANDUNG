@@ -70,7 +70,7 @@ public class Notlpdarurat extends AppCompatActivity
 
     private void logout(){
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(getApplicationContext(), TampilanAwal.class);
+        Intent intent = new Intent(getApplicationContext(), Login.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         Toast.makeText(Notlpdarurat.this, "Thanks for visited", Toast.LENGTH_SHORT).show();
         startActivity(intent);
