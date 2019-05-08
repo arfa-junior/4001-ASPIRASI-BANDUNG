@@ -14,12 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Tema"></activity>
-
+        <activity android:name=".SetingsActivity"></activity>
+        <activity android:name=".Tema" />
         <activity android:name=".Tema" />
         <activity android:name=".Lapor" />
-        <activity android:name=".Settings"></activity>
-
+        <activity android:name=".Settings" />
     </application>
 
 </manifest>
