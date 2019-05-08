@@ -17,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
-//
+r
     private EditText txtEmailLogin;
     private EditText txtPwd;
     private FirebaseAuth firebaseAuth;
@@ -37,7 +37,6 @@ public class Login extends AppCompatActivity {
                 startActivity(Regis);
             }
         });
-//
     }
 
     public void btnUserLogin_Click(View v) {
@@ -52,7 +51,7 @@ public class Login extends AppCompatActivity {
                             Intent i = new Intent(Login.this, MainActivity.class);
                             i.putExtra("Email", firebaseAuth.getCurrentUser().getEmail());
                             startActivity(i);
-                        }
+
                         private EditText txtEmailLogin;
                         private EditText txtPwd;
                         private FirebaseAuth firebaseAuth;
@@ -88,6 +87,7 @@ public class Login extends AppCompatActivity {
                                                 i.putExtra("Email", firebaseAuth.getCurrentUser().getEmail());
                                                 startActivity(i);
                                             }
+
                         else {
                             Log.e("ERROR", task.getException().toString());
                             Toast.makeText(Login.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -177,3 +177,4 @@ public class Login extends AppCompatActivity {
 //                });
 //    }
 //}
+

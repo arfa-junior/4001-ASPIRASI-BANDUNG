@@ -74,6 +74,7 @@ public class Registrasi extends AppCompatActivity {
                                 Toast.makeText(Registrasi.this, "Registrasi berhasil", Toast.LENGTH_LONG).show();
                                 Intent i = new Intent(Registrasi.this, Login.class);
                                 startActivity(i);
+
                                 @Override
                                 protected void onCreate(Bundle savedInstanceState) {
                                     super.onCreate(savedInstanceState);
@@ -122,6 +123,7 @@ public class Registrasi extends AppCompatActivity {
                                                             Toast.makeText(Registrasi.this, "Registrasi berhasil", Toast.LENGTH_LONG).show();
                                                             Intent i = new Intent(Registrasi.this, Login.class);
                                                             startActivity(i);
+
 
                             }else{
                                 Log.e("Registrasi gagal", task.getException().toString());
