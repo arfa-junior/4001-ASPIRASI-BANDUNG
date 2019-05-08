@@ -7,18 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d958aa0-e6e4-444a-a499-2ab06a2d1184" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/SplashScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AboutUs.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AboutUs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AdapterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AdapterCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AdapterLapor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AdapterLapor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/CardLapor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/CardLapor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Feedback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_status_laporan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_status_laporan.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,13 +79,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="916" />
+          <entry key="java" value="975" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="916" />
+          <entry key="JAVA" value="975" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -122,13 +112,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Feedback.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="297">
+              <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
               <folding>
-                <element signature="e#0#37#0" expanded="true" />
+                <element signature="e#0#87#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -158,27 +148,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Lapor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+            <state relative-caret-position="425">
+              <caret line="529" column="2" selection-start-line="529" selection-start-column="2" selection-end-line="529" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AdapterCard.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
-              <caret line="829" selection-start-line="829" selection-end-line="829" />
+              <caret line="3001" column="4" selection-start-line="3001" selection-start-column="4" selection-end-line="3001" selection-end-column="4" />
               <folding>
-                <element signature="e#6271#6302#0" expanded="true" />
-                <element signature="e#6304#6336#0" expanded="true" />
-                <element signature="e#10300#10343#0" expanded="true" />
-                <element signature="e#20607#20638#0" expanded="true" />
-                <element signature="e#20640#20672#0" expanded="true" />
-                <element signature="e#27486#27517#0" expanded="true" />
-                <element signature="e#27519#27551#0" expanded="true" />
-                <element signature="e#32275#32318#0" expanded="true" />
-                <element signature="e#40970#41013#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#6239#6270#0" expanded="true" />
+                <element signature="e#6272#6304#0" expanded="true" />
+                <element signature="e#10268#10311#0" expanded="true" />
+                <element signature="e#20575#20606#0" expanded="true" />
+                <element signature="e#20608#20640#0" expanded="true" />
+                <element signature="e#27447#27478#0" expanded="true" />
+                <element signature="e#27480#27512#0" expanded="true" />
+                <element signature="e#32236#32279#0" expanded="true" />
+                <element signature="e#40931#40974#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -244,15 +235,15 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_header_about_us.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_notlpdarurat.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Notlpdarurat.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Lapor.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_status_laporan.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Card.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/CardLapor.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AdapterLapor.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AdapterCard.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AboutUs.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Feedback.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Lapor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AdapterCard.java" />
       </list>
     </option>
   </component>
@@ -426,10 +417,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32980332" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.32980332" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -440,7 +430,7 @@
       <window_info anchor="bottom" id="Logcat" order="1" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.3295082" />
-      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.3295082" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Build" order="6" weight="0.3295082" />
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
@@ -648,13 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Lapor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -693,24 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AdapterCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="829" selection-start-line="829" selection-end-line="829" />
-          <folding>
-            <element signature="e#6271#6302#0" expanded="true" />
-            <element signature="e#6304#6336#0" expanded="true" />
-            <element signature="e#10300#10343#0" expanded="true" />
-            <element signature="e#20607#20638#0" expanded="true" />
-            <element signature="e#20640#20672#0" expanded="true" />
-            <element signature="e#27486#27517#0" expanded="true" />
-            <element signature="e#27519#27551#0" expanded="true" />
-            <element signature="e#32275#32318#0" expanded="true" />
-            <element signature="e#40970#41013#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AboutUs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -723,10 +688,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Feedback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="297">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/Lapor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="529" column="2" selection-start-line="529" selection-start-column="2" selection-end-line="529" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/aspirasilapor/AdapterCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="3001" column="4" selection-start-line="3001" selection-start-column="4" selection-end-line="3001" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6239#6270#0" expanded="true" />
+            <element signature="e#6272#6304#0" expanded="true" />
+            <element signature="e#10268#10311#0" expanded="true" />
+            <element signature="e#20575#20606#0" expanded="true" />
+            <element signature="e#20608#20640#0" expanded="true" />
+            <element signature="e#27447#27478#0" expanded="true" />
+            <element signature="e#27480#27512#0" expanded="true" />
+            <element signature="e#32236#32279#0" expanded="true" />
+            <element signature="e#40931#40974#0" expanded="true" />
           </folding>
         </state>
       </provider>
