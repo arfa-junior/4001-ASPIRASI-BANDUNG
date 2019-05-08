@@ -68,7 +68,7 @@ public class Lapor extends AppCompatActivity
         foto = findViewById(R.id.Img);
         db = FirebaseFirestore.getInstance();
         mAuth= FirebaseAuth.getInstance();
-
+//card
         //init
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
