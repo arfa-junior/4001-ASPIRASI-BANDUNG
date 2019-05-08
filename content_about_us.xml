@@ -4,37 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light"
+    android:background="@color/bg_splash"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AboutUs"
     tools:showIn="@layout/app_bar_about_us">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="281dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/aspirasi"/>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="354dp"
         android:layout_height="229dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="52dp"
         android:text="Aspirasi bandung adalah sebuah platform yang mewadahi aspirasi-aspirasi masyarakat bandung mengenai berbagai permasalahan di linkungan masyarakat seperti jembatan rusak, pembangunan rusak, jalan rusak, dan berbagai permasalahan yang ada di kabupaten bandung.Aplikasi ini dikembangkan oleh sekelompok mahasiswa jurusan sistem informasi Universitas Telkom Bandung. aplikasi ini dirilis pada tahun 2019 dan di dukung oleh Pemerintah Kabupaten Bandung."
         android:textAlignment="center"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
-        android:textStyle="bold"
-        app:fontFamily="serif-monospace"
+        app:fontFamily="sans-serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />;
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="353dp"
+        android:layout_height="398dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/splashscreen"
+        tools:layout_editor_absoluteY="0dp" />;
     android:text="Aspirasi bandung adalah sebuah platform yang mewadahi aspirasi-aspirasi masyarakat
     bandung mengenai berbagai permasalahan di linkungan masyarakat seperti jembatan rusak,
     pembangunan rusak, jalan rusak, dan berbagai permasalahan yang ada di kabupaten bandung.Aplikasi

@@ -22,11 +22,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.app.DatePickerDialog;
+import java.text.SimpleDateFormat;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -50,6 +52,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.UUID;
 
 public class Lapor extends AppCompatActivity
@@ -58,10 +62,13 @@ public class Lapor extends AppCompatActivity
     private Button PilihGambar, Upload;
     private ImageView Img;
     private EditText edtKategori, edtTanggal, edtDesk;
+    private TextView txTanggal;
     private Uri filePath;
     FirebaseStorage storage;
     StorageReference storageReference;
     private final int PICK_IMAGE_REQUEST = 71;
+    private DatePickerDialog datePickerDialog;
+    private SimpleDateFormat dateFormatter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +86,7 @@ public class Lapor extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         PilihGambar = (Button) findViewById(R.id.PilihGambar);
@@ -87,6 +95,7 @@ public class Lapor extends AppCompatActivity
         edtDesk = (EditText) findViewById(R.id.edtDesk);
         edtTanggal = (EditText) findViewById(R.id.edtTanggal);
         edtKategori = (EditText) findViewById(R.id.edtKategori);
+        txTanggal = (TextView) findViewById(R.id.txt_tanggal);
 
         PilihGambar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +110,52 @@ public class Lapor extends AppCompatActivity
                 uploadImage();
             }
         });
+
+        txTanggal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDateDialog();
+            }
+        });
+    }
+
+    private void showDateDialog(){
+
+        /**
+         * Calendar untuk mendapatkan tanggal sekarang
+         */
+        Calendar newCalendar = Calendar.getInstance();
+
+        /**
+         * Initiate DatePicker dialog
+         */
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                /**
+                 * Method ini dipanggil saat kita selesai memilih tanggal di DatePicker
+                 */
+
+                /**
+                 * Set Calendar untuk menampung tanggal yang dipilih
+                 */
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+
+                /**
+                 * Update TextView dengan tanggal yang kita pilih
+                 */
+                edtTanggal.setText(dateFormatter.format(newDate.getTime()));
+            }
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+        /**
+         * Tampilkan DatePicker dialog
+         */
+        datePickerDialog.show();
     }
 
     private void chooseImage() {
@@ -117,13 +172,35 @@ public class Lapor extends AppCompatActivity
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("images/" + UUID.randomUUID().toString());
+            final StorageReference ref = storageReference.child("images/" + UUID.randomUUID().toString());
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
                             Toast.makeText(Lapor.this, "Uploaded", Toast.LENGTH_SHORT).show();
+
+                            ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    if (TextUtils.isEmpty(edtKategori.getText()) || TextUtils.isEmpty(edtTanggal.getText()) || TextUtils.isEmpty(edtDesk.getText())) {
+                                        Toast.makeText(Lapor.this, "Data yang diminta tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        //instansiasi database firebase
+                                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+                                        //Referensi database yang dituju
+                                        DatabaseReference referensi = database.getReference("Lapor").child(edtTanggal.getText().toString());
+
+                                        //memberi nilai pada referensi yang dituju
+                                        referensi.child("Deskripsi").setValue(edtDesk.getText().toString());
+                                        referensi.child("Kategori").setValue(edtKategori.getText().toString());
+                                        referensi.child("Image").setValue(uri.toString());
+                                    }
+                                }
+                            });
+
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -141,20 +218,6 @@ public class Lapor extends AppCompatActivity
                             progressDialog.setMessage("Uploaded " + (int) progress + "%");
                         }
                     });
-        }
-
-        if (TextUtils.isEmpty(edtKategori.getText()) || TextUtils.isEmpty(edtTanggal.getText()) || TextUtils.isEmpty(edtDesk.getText())) {
-            Toast.makeText(Lapor.this, "Data yang diminta tidak boleh kosong", Toast.LENGTH_SHORT).show();
-        } else {
-            //instansiasi database firebase
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-            //Referensi database yang dituju
-            DatabaseReference referensi = database.getReference("Lapor").child(edtTanggal.getText().toString());
-
-            //memberi nilai pada referensi yang dituju
-            referensi.child("Deskripsi").setValue(edtDesk.getText().toString());
-            referensi.child("Kategori").setValue(edtKategori.getText().toString());
         }
     }
 
@@ -210,7 +273,7 @@ public class Lapor extends AppCompatActivity
 
     private void logout(){
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(getApplicationContext(), TampilanAwal.class);
+        Intent intent = new Intent(getApplicationContext(), Login.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         Toast.makeText(Lapor.this, "Thanks for visited", Toast.LENGTH_SHORT).show();
         startActivity(intent);
