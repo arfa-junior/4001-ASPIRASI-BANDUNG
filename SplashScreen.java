@@ -1,4 +1,4 @@
-package com.aspirasibandung.aspirasibandung;
+package com.example.aspirasilapor;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -8,10 +8,8 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
-/**
- * Created by Yoeszch on 26/12/2017.
- */
 
+///////
 public class SplashScreen extends AwesomeSplash {
     @Override
     public void initSplash(ConfigSplash configSplash){
