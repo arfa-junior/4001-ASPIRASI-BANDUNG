@@ -122,7 +122,8 @@
         android:textColor="@color/colorPrimary"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/btnUserLogin" />
-    <?xml version="1.0" encoding="utf-8"?>
+
+    <?xml v=ersion="1.0" encoding="utf-8"?>
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
