@@ -137,7 +137,6 @@ public class Lapor extends AppCompatActivity
             referensi.child("Deskripsi").setValue(edtDesk.getText().toString());
             referensi.child("Kategori").setValue(edtKategori.getText().toString());
         }*/
-}////////////////////////////////
 
     @Override
     public void onBackPressed() {
@@ -261,6 +260,5 @@ public class Lapor extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-
     }
 }

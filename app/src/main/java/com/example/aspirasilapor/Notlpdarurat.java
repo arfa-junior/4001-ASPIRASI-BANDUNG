@@ -2,9 +2,6 @@ package com.example.aspirasilapor;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -70,10 +67,17 @@ public class Notlpdarurat extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    private void logout(){
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(getApplicationContext(), TampilanAwal.class);
+
 //
     private void logout(){
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(getApplicationContext(), Login.class);
+
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         Toast.makeText(Notlpdarurat.this, "Thanks for visited", Toast.LENGTH_SHORT).show();
         startActivity(intent);
@@ -138,6 +142,7 @@ public class Notlpdarurat extends AppCompatActivity
         else if (id == R.id.nav_statuslaporan) {
             statuslaporan();
         }
+
     package com.example.aspirasilapor;
 
 import android.content.Intent;
@@ -284,6 +289,7 @@ import com.google.firebase.auth.FirebaseAuth;
                 return true;
             }
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
