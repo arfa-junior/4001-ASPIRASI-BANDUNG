@@ -1,10 +1,10 @@
-package com.aspirasibandung.aspirasibandung;
+package com.example.aspirasilapor;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -17,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
-
+//
     private EditText txtEmailLogin;
     private EditText txtPwd;
     private FirebaseAuth firebaseAuth;
@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
                 startActivity(Regis);
             }
         });
-
+//
     }
 
     public void btnUserLogin_Click(View v) {

@@ -1,4 +1,5 @@
-package com.aspirasibandung.aspirasibandung;
+
+package com.example.aspirasilapor;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -141,7 +142,9 @@ public class Feedback extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(Feedback.this, SettingsActivity.class);
+            startActivity(intent);
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -220,3 +223,4 @@ public class Feedback extends AppCompatActivity
         return true;
     }
 }
+

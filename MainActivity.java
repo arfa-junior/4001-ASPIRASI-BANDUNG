@@ -1,4 +1,4 @@
-package com.aspirasibandung.aspirasibandung;
+package com.example.aspirasilapor;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -21,9 +21,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity
     RecyclerView rvMain;
     List<CardLapor> List;
     AdapterLapor myAdapter;
+    Spinner spkategori;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +93,17 @@ public class MainActivity extends AppCompatActivity
                 loadData();
             }
         });
+
+        spkategori = (Spinner) findViewById(R.id.spKategori);
+
+        Spinner spinner = (Spinner) findViewById(R.id.spKategori);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.kategori_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
     }
 
     private void loadData() {
@@ -144,7 +158,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

@@ -1,4 +1,4 @@
-package com.aspirasibandung.aspirasibandung;
+package com.example.aspirasilapor;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -70,7 +70,7 @@ public class Notlpdarurat extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-
+//
     private void logout(){
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(getApplicationContext(), Login.class);

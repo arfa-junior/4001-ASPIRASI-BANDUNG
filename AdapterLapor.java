@@ -1,8 +1,7 @@
-package com.aspirasibandung.aspirasibandung;
+package com.example.aspirasilapor;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,14 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
-
-import java.io.ByteArrayInputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterLapor extends RecyclerView.Adapter<AdapterLapor.ViewHolder> {
@@ -31,7 +22,7 @@ public class AdapterLapor extends RecyclerView.Adapter<AdapterLapor.ViewHolder> 
         this.mContext = mContext;
 
     }
-
+//
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new AdapterLapor.ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.tampilanlapor, parent, false)) {
@@ -71,26 +62,7 @@ public class AdapterLapor extends RecyclerView.Adapter<AdapterLapor.ViewHolder> 
             kategori.setText(card.getkategori());
             deskripsi.setText(card.getdeskripsi());
 
-            StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("images").child(card.getimg());
 
-
-            if (card.getimg() != null) Picasso.get().load(card.getimg()).into(image);
-
-//            final StorageReference islandRef = FirebaseStorage.getInstance().getReference().child("images/" + card.getimg());
-//
-//            final long ONE_MEGABYTE = 10* 1024 * 1024;
-//            islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-//                @Override
-//                public void onSuccess(byte[] bytes) {
-//                    Drawable d = Drawable.createFromStream(new ByteArrayInputStream(bytes), null);
-//                    image.setImageDrawable(d);
-//                }
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception exception) {
-//                    image.setImageResource(R.drawable.ic_launcher_background);
-//                }
-//            });
         }
 
         @Override

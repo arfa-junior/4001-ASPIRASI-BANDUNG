@@ -1,4 +1,4 @@
-package com.aspirasibandung.aspirasibandung;
+package com.example.aspirasilapor;
 
 public class CardLapor {
     String img, kategori,deskripsi;
@@ -10,7 +10,7 @@ public class CardLapor {
         this.kategori = kategori;
         this.deskripsi = deskripsi;
     }
-
+///
     public String getimg() {
         return img;
     }
