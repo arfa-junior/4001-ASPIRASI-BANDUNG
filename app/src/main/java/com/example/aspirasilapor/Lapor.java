@@ -137,7 +137,6 @@ public class Lapor extends AppCompatActivity
             referensi.child("Deskripsi").setValue(edtDesk.getText().toString());
             referensi.child("Kategori").setValue(edtKategori.getText().toString());
         }*/
-    }
 
     @Override
     public void onBackPressed() {

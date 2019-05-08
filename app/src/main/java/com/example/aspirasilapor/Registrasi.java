@@ -75,6 +75,56 @@ public class Registrasi extends AppCompatActivity {
                                 Intent i = new Intent(Registrasi.this, Login.class);
                                 startActivity(i);
 
+                                @Override
+                                protected void onCreate(Bundle savedInstanceState) {
+                                    super.onCreate(savedInstanceState);
+                                    setContentView(R.layout.activity_registrasi);
+                                    txtEmailAddress = (EditText) findViewById(R.id.txtEmailRegistration);
+                                    txtPassword = (EditText) findViewById(R.id.txtPasswordRegistration);
+                                    txtnama = (EditText)findViewById(R.id.txtnama);
+                                    firebaseAuth = firebaseAuth.getInstance();
+
+
+                                    final TextView Login = (TextView) findViewById(R.id.Login);
+                                    Login.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent login = new Intent(Registrasi.this,Login.class);
+                                            startActivity(login);
+                                        }
+                                    });
+
+                                }
+
+                                public void btnRegistrationUser_Click(View v) {
+                                    if (TextUtils.isEmpty(txtEmailAddress.getText()) || TextUtils.isEmpty(txtPassword.getText()) || TextUtils.isEmpty(txtnama.getText())) {
+                                        Toast.makeText(Registrasi.this, "Data yang diminta tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        //instansiasi database firebase
+                                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+                                        //Referensi database yang dituju
+                                        DatabaseReference referensi = database.getReference("Nama Pengguna").child(txtnama.getText().toString());
+
+                                        //memberi nilai pada referensi yang dituju
+                                        referensi.child("E-mail").setValue(txtEmailAddress.getText().toString());
+                                        referensi.child("Password").setValue(txtPassword.getText().toString());
+                                        Toast.makeText(Registrasi.this, "Data pengguna baru berhasil ditambahkan", Toast.LENGTH_LONG).show();
+
+
+                                        final ProgressDialog progressDialog = ProgressDialog.show(Registrasi.this, "Please Wait...", "Processing ...", true);
+                                        ( firebaseAuth.createUserWithEmailAndPassword(txtEmailAddress.getText().toString(), txtPassword.getText().toString()))
+                                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                                        progressDialog.dismiss();
+
+                                                        if (task.isSuccessful()) {
+                                                            Toast.makeText(Registrasi.this, "Registrasi berhasil", Toast.LENGTH_LONG).show();
+                                                            Intent i = new Intent(Registrasi.this, Login.class);
+                                                            startActivity(i);
+
+
                             }else{
                                 Log.e("Registrasi gagal", task.getException().toString());
                                 Toast.makeText(Registrasi.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
