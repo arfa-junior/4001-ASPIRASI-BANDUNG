@@ -18,6 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".SetingsActivity"></activity>
+        <activity android:name=".Tema" />
+
+
         <activity android:name=".Card"></activity>
         <activity android:name=".AdapterCard" />
         <activity android:name=".Lapor" />
@@ -34,10 +38,10 @@
 
         <activity android:name=".Tema"></activity>
 
+
         <activity android:name=".Tema" />
         <activity android:name=".Lapor" />
-        <activity android:name=".Settings"></activity>
-
+        <activity android:name=".Settings" />
     </application>
 
 </manifest>
