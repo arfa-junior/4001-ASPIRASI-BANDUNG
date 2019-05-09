@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity
                     CardLapor lapor = new CardLapor();
                     lapor.setdeskripsi(String.valueOf(ds.child("Deskripsi").getValue()));
                     lapor.setkategori(String.valueOf(ds.child("Kategori").getValue()));
-                    lapor.setimg(String.valueOf(ds.child("Image").getValue()));
+                 //   lapor.setimg(String.valueOf(ds.child("Image").getValue()));
                     List.add(lapor);
                 }
                 myAdapter.notifyDataSetChanged();

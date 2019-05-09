@@ -8,9 +8,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
-/**
- * Created by Yoeszch on 26/12/2017.
- */
+
 
 public class SplashScreen extends AwesomeSplash {
     @Override
