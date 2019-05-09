@@ -1,10 +1,7 @@
-package com.aspirasibandung.aspirasibandung;
+package com.example.aspirasilapor;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -26,6 +23,8 @@ public class StatusLaporan extends AppCompatActivity
         setContentView(R.layout.activity_status_laporan);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -70,7 +69,7 @@ public class StatusLaporan extends AppCompatActivity
     }
     private void logout(){
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(getApplicationContext(), Login.class);
+        Intent intent = new Intent(getApplicationContext(), TampilanAwal.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         Toast.makeText(StatusLaporan.this, "Thanks for visited", Toast.LENGTH_SHORT).show();
         startActivity(intent);
@@ -133,7 +132,6 @@ public class StatusLaporan extends AppCompatActivity
         } else if (id == R.id.keluar) {
             logout();
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
