@@ -16,15 +16,17 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdapterLapor extends RecyclerView.Adapter<AdapterLapor.ViewHolder> {
-    private ArrayList<CardLapor> daftarChat;
+    private List<CardLapor> daftarChat;
     private Context mContext;
 
-    public AdapterLapor(ArrayList<CardLapor> daftarChat, Context mContext) {
+    public AdapterLapor(List<CardLapor> daftarChat, Context mContext) {
         this.daftarChat = daftarChat;
         this.mContext = mContext;
 
@@ -69,21 +71,26 @@ public class AdapterLapor extends RecyclerView.Adapter<AdapterLapor.ViewHolder> 
             kategori.setText(card.getkategori());
             deskripsi.setText(card.getdeskripsi());
 
-            final StorageReference islandRef = FirebaseStorage.getInstance().getReference().child("images/" + card.getImagePath());
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("images").child(card.getimg());
 
-            final long ONE_MEGABYTE = 10* 1024 * 1024;
-            islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                @Override
-                public void onSuccess(byte[] bytes) {
-                    Drawable d = Drawable.createFromStream(new ByteArrayInputStream(bytes), null);
-                    image.setImageDrawable(d);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    image.setImageResource(R.drawable.ic_launcher_background);
-                }
-            });
+
+            if (card.getimg() != null) Picasso.get().load(card.getimg()).into(image);
+
+//            final StorageReference islandRef = FirebaseStorage.getInstance().getReference().child("images/" + card.getimg());
+//
+//            final long ONE_MEGABYTE = 10* 1024 * 1024;
+//            islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+//                @Override
+//                public void onSuccess(byte[] bytes) {
+//                    Drawable d = Drawable.createFromStream(new ByteArrayInputStream(bytes), null);
+//                    image.setImageDrawable(d);
+//                }
+//            }).addOnFailureListener(new OnFailureListener() {
+//                @Override
+//                public void onFailure(@NonNull Exception exception) {
+//                    image.setImageResource(R.drawable.ic_launcher_background);
+//                }
+//            });
         }
 
         @Override

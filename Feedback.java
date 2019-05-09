@@ -1,25 +1,26 @@
-package com.example.aspirasilapor;
+package com.aspirasibandung.aspirasibandung;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.firebase.client.Firebase;
 public class Feedback extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     EditText nameData, emailData, messageData;
@@ -148,7 +149,7 @@ public class Feedback extends AppCompatActivity
 
     private void logout(){
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(getApplicationContext(), TampilanAwal.class);
+        Intent intent = new Intent(getApplicationContext(), Login.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         Toast.makeText(Feedback.this, "Thanks for visited", Toast.LENGTH_SHORT).show();
         startActivity(intent);
